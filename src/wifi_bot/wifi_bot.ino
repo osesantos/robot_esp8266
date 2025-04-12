@@ -3,14 +3,14 @@
 const char* ssid = "Net Loading...";
 const char* password = "Olivia.Serafim.1001";
 
-int IN1 = 0;        // D1 right motor_a
-int IN2 = 2;        // D2 right motor_b
-int IN3 = 14;         // D2 left motor_b
-int IN4 = 12;         // D4 left motor_a
-int ENA = 4;           // Pin 1 of L293D IC, D6 Pin of NodeMCU
-int ENB = 13;           // Pin 9 of L293D IC, D5 Pin of NodeMCU
-int duty_a = 200;        // Speed of right motor range(0-255)
-int duty_b = 200;        // Speed of left motor range(0-255)
+int IN1 = 0;          // D3
+int IN2 = 2;          // D4
+int IN3 = 14;         // D5
+int IN4 = 12;         // D6
+int ENA = 4;          // D2
+int ENB = 13;         // D7
+int duty_a = 200;     // Speed of right motor range(0-255)
+int duty_b = 200;     // Speed of left motor range(0-255)
 WiFiServer server(80);
 
 void setup() {
@@ -36,11 +36,11 @@ void setup() {
   }
   Serial.println("WiFi connected!");
 
-  /*-------- server started---------*/
+  /*-------- server started ---------*/
   server.begin();
   Serial.println("Server started");
 
-  /*------printing ip address--------*/
+  /*------ printing ip address --------*/
   Serial.print("IP Address of network: ");
   Serial.println(WiFi.localIP());
   Serial.print("Copy and paste the following URL: https://");
@@ -85,7 +85,7 @@ void loop() {
     value ="reverse" ;
   }
 
-  /*------------------Creating html page---------------------*/
+  /*------------------ Creating html page ---------------------*/
 
   client.println("HTTP/1.1 200 OK");
   client.println("Content-Type: text/html");
